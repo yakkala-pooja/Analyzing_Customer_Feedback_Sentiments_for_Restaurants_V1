@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url('/static/home.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-color: grey;
+            background-blend-mode: multiply;
+        }
+        .center{
+            right: 50%;
+            bottom: 45%;
+            transform: translate(50%, 50%);
+            position: absolute;
+            font-size: 63px;
+            font-family: "Lucida Console", "Courier New", monospace;
+            background: radial-gradient(circle, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .transparent-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        .transparent-header div {
+            margin-left: 30px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .transparent-header i {
+            margin-right: 13px;
+        }
+        .transparent-header .fa-home {
+            color: #ffffff;
+        }
+        .transparent-header .fa-search {
+            color: #ffffff;
+        }
+        .transparent-header .search-predict {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            margin-right: 40px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .transparent-header .search-predict i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<header class="transparent-header">
+    <div class="home">
+      <i class="fa fa-home"></i>
+      <span><a href="{{ url_for('welcome') }}" style="color:white;text-decoration:none;">Home</a></span>
+    </div>
+    <div class="search-predict">
+      <i class="fa fa-search"></i>
+      <span><a href="{{ url_for('pred') }}" style="color:white;text-decoration:none;">Predict</a></span>
+    </div>
+</header>
+<h1 class = "center">SMART RESTAURANT</h1>
+</body>
+</html>

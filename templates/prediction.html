@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Review Analysis</title>
+    <style>
+        body {
+            background-image: url('/static/prediction.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-color: grey;
+            background-blend-mode: multiply;
+        }
+        .transparent-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        .transparent-header div {
+            margin-left: 30px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .transparent-header i {
+            margin-right: 13px;
+        }
+        .transparent-header .fa-home {
+            color: #ffffff;
+        }
+        .transparent-header .fa-search {
+            color: #ffffff;
+        }
+        .transparent-header .fa-info {
+            color: #ffffff;
+        }
+        .transparent-header .search-predict {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        .transparent-header .about {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            margin-right: 40px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        .transparent-header .search-predict i, .transparent-header .about i {
+            margin-right: 13px;
+        }
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Georgia, serif;
+        }
+        .heading {
+            margin-top: 100px;
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #E1D9D1;
+        }
+        .sub-heading {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #E1D9D1;
+        }
+        .review-textbox {
+            width: 100%;
+            height: 70px;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            background-color: transparent;
+            border: none;
+            background:rgba(255,255,255,0.2);
+        }
+        .predict-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: grey;
+            color: #E1D9D1;
+            border: none;
+            cursor: pointer;
+        }
+        .result-textbox {
+            width: 100%;
+            height: 20px;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            background-color: transparent;
+            background:rgba(255,255,255,0.2);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<header class="transparent-header">
+    <div class="home">
+      <i class="fa fa-home"></i>
+      <span><a href="{{ url_for('welcome') }}" style="color:white;text-decoration:none;">Home</a></span>
+    </div>
+    <div class="search-predict">
+      <i class="fa fa-search"></i>
+      <span><a href="{{ url_for('pred') }}" style="color:white;text-decoration:none;">Predict</a></span>
+    </div>
+    <div class="about">
+      <i class="fa fa-info"></i>
+      <span><a href="{{ url_for('about') }}" style="color:white;text-decoration:none;">About</a></span>
+    </div>
+</header>
+<div class="centered-content">
+    <h1 class="heading">REVIEW ANALYSIS</h1>
+    <h2 class="sub-heading">Enter your review here</h2>
+    <form method="post">
+      <label><textarea class="review-textbox" name="message" rows="5"></textarea></label>
+      <button type="submit" class="predict-button">Predict</button>
+    </form>
+    <h1 class="heading">Prediction Result</h1>
+    <label><textarea class="result-textbox" name="message" readonly>{% if prediction %}
+    Result: {{ prediction }}
+  {% endif %}</textarea></label>
+</div>
+</body>
+</html>
